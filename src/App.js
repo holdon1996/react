@@ -4,13 +4,33 @@ import './App.css';
 
 class App extends React.Component {
   render() {
-    const elements = (
-      <div className="firstLession">
-        <h1>{this.props.header}</h1>
-        <h2>{this.props.footer}</h2>
+    return (
+      <div>
+        <Header />
+        <Content />
       </div>
-    );
-    return elements;
+    )
+  }
+}
+
+class Header extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Header</h1>
+      </div>
+    )
+  }
+}
+
+class Content extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>Content</h2>
+        <p>The content text !!!</p>
+      </div>
+    )
   }
 }
 
