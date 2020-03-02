@@ -3,13 +3,40 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data:
+        [
+          {
+            "id": 1,
+            "name": "Foo",
+            "age": "20"
+          },
+          {
+            "id": 2,
+            "name": "Bar",
+            "age": "30"
+          },
+          {
+            "id": 3,
+            "name": "Baz",
+            "age": "40"
+          }
+        ]
+    }
+  }
   render() {
     return (
       <div>
         <Header />
-        <Content />
+        <table>
+          <tbody>
+            {this.state.data.map((data, index) => <TableRow key={index} data={data} />)}
+          </tbody>
+        </table>
       </div>
-    )
+    );
   }
 }
 
@@ -19,18 +46,20 @@ class Header extends React.Component {
       <div>
         <h1>Header</h1>
       </div>
-    )
+    );
   }
 }
 
-class Content extends React.Component {
+class TableRow extends React.Component {
   render() {
     return (
-      <div>
-        <h2>Content</h2>
-        <p>The content text !!!</p>
-      </div>
-    )
+      <tr>
+        <td>{this.key}</td>
+        <td>{this.props.data.id}</td>
+        <td>{this.props.data.name}</td>
+        <td>{this.props.data.age}</td>
+      </tr>
+    );
   }
 }
 
